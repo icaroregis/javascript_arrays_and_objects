@@ -4,7 +4,7 @@ const frase = 'O rato roeu a roupa do Rei de Roma.';
 const dividirString = frase.split(' ');
 console.log(dividirString);
 
-//dividir tirando a letra passada.
+//dividir retirando a letra passada.
 const dividirTirandoaLetra = frase.split('r');
 console.log(dividirTirandoaLetra);
 
