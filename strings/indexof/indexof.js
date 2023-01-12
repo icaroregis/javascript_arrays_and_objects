@@ -12,7 +12,3 @@ console.log(indexdoElemento);
 //Faz a busca sempre pelo ultimo elemento da string
 const lastIndexOff = array.lastIndexOf('Cristo');
 console.log(lastIndexOff);
-
-//Replace substitui o argumento passado pelo outro argumento passado
-const substituir = array.replace('Cristo Rei', 'Nossa Senhora de Pompeia');
-console.log(substituir);
