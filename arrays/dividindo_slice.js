@@ -28,10 +28,11 @@ const alunos = [
 
 //1forma
 //const sala1 = alunos.slice(0, 10);
+
 //2 forma
 const sala1 = alunos.slice(0, alunos.length / 2);
 
-/* podemos passar também apenas o preimeiro parametro que o slice entende que tera que pegar do primiero até o ultimo */
+/*podemos passar também apenas o primeiro parametro que o slice entende que tera que pegar do primiero até o ultimo*/
 //1 forma
 //const sala2 = alunos.slice(10);
 //2 forma
