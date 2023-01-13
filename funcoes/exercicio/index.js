@@ -6,12 +6,25 @@
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const nome = form.querySelector('.nome');
-    const sobrenome = form.querySelector('.sobrenome');
-    const peso = form.querySelector('.peso');
-    const altura = form.querySelector('.altura');
 
-    pessoas.push({
+    let nome = form.querySelector('.nome');
+    let sobrenome = form.querySelector('.sobrenome');
+    let peso = form.querySelector('.peso');
+    let altura = form.querySelector('.altura');
+
+    if (
+      nome.value === '' &&
+      sobrenome.value === '' &&
+      peso.value === '' &&
+      altura.value === ''
+    ) {
+      setTimeout(() => {
+        alert(`Todos os campos são obrigatórios`);
+      }, '1000');
+
+      return;
+    }
+    return pessoas.push({
       nome: nome.value,
       sobrenome: sobrenome.value,
       peso: peso.value,
@@ -19,7 +32,15 @@
     });
 
     console.log(pessoas);
-
     resultado.innerHTML += `<p>${nome.value} ${sobrenome.value} ${peso.value} ${altura.value}</p>`;
+
+    limpar(nome, sobrenome, peso, altura);
   });
+
+  function limpar(nome, sobrenome, peso, altura) {
+    nome.value = '';
+    sobrenome.value = '';
+    peso.value = '';
+    altura.value = '';
+  }
 })();
