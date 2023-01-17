@@ -56,7 +56,6 @@
   }
 
   function exibirMensagem(msg, result) {
-    resultado.innerHTML = '';
     resultado.innerHTML += `<p>Seu imc é de: ${result}. ${msg}</p>`;
     setTimeout(() => {
       resultado.innerHTML = '';
