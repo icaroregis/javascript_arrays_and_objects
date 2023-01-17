@@ -1,13 +1,13 @@
 /*
-&& => irá para de executar quando encontrar: false && true => false "o valor mesmo" 
+&& => irá para de executar quando encontrar: false && true => false "o valor mesmo"  
 
 FALSY:
 1. false
-2. "", '', ``
+2. "", '', `` 
 3. 0
 4. null
 5. undefined
-6. NaN.
+6. NaN. 
 
 */
 

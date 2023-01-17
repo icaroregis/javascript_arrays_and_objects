@@ -13,27 +13,26 @@
     let altura = form.querySelector('.altura');
 
     if (
-      nome.value === '' &&
-      sobrenome.value === '' &&
-      peso.value === '' &&
+      nome.value === '' ||
+      sobrenome.value === '' ||
+      peso.value === '' ||
       altura.value === ''
     ) {
       setTimeout(() => {
-        alert(`Todos os campos são obrigatórios`);
-      }, '1000');
+        alert('Todos os campos são obrigatórios');
+      }, 1000);
 
       return;
     }
-    return pessoas.push({
+
+    pessoas.push({
       nome: nome.value,
       sobrenome: sobrenome.value,
       peso: peso.value,
       altura: altura.value,
     });
 
-    console.log(pessoas);
     resultado.innerHTML += `<p>${nome.value} ${sobrenome.value} ${peso.value} ${altura.value}</p>`;
-
     limpar(nome, sobrenome, peso, altura);
   });
 
