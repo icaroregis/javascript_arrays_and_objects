@@ -8,11 +8,6 @@
     const peso = document.getElementById('peso');
     const altura = document.getElementById('altura');
 
-    if (!peso && !altura) {
-      alert('Prencha todos os campos!!!');
-      return;
-    }
-
     const result = (
       Number(peso.value) /
       (Number(altura.value) * Number(altura.value))
@@ -47,7 +42,7 @@
       return exibirMensagem('Obsesidade Grau III', result);
     }
 
-    return exibirMensagem('Altura ou peso inválido', result);
+    return invalid();
   }
 
   function limpar(peso, altura) {
@@ -55,10 +50,27 @@
     altura.value = '';
   }
 
-  function exibirMensagem(msg, result) {
-    resultado.innerHTML += `<p>Seu imc é de: ${result}. ${msg}</p>`;
+  function invalid() {
+    const paragrafo = document.createElement('p');
+    paragrafo.innerHTML = 'Peso ou altura inválidos!';
+    paragrafo.classList.add('paragrafo-invalid');
+    resultado.appendChild(paragrafo);
+
     setTimeout(() => {
-      resultado.innerHTML = '';
+      paragrafo.innerHTML = '';
+      paragrafo.classList.remove('paragrafo-invalid');
+    }, 3000);
+  }
+
+  function exibirMensagem(msg, result) {
+    const paragrafo = document.createElement('p');
+    paragrafo.innerHTML = `Seu imc é de: ${result}. ${msg}`;
+    paragrafo.classList.add('paragrafo-ativo');
+    resultado.appendChild(paragrafo);
+
+    setTimeout(() => {
+      paragrafo.innerHTML = '';
+      paragrafo.classList.remove('paragrafo-ativo');
     }, 3000);
   }
 })();

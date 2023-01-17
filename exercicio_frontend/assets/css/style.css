@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap'); 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 :root {
   --primary-color: rgb(17, 86, 102);
   --primary-color-darker: rgb(9, 48, 56);
@@ -26,7 +26,9 @@ body {
   border-radius: 10px;
 }
 
-form input, form label, form button {
+form input,
+form label,
+form button {
   display: block;
   width: 100%;
   margin-bottom: 10px;
@@ -59,5 +61,17 @@ form button:hover {
 
 .container-flex {
   display: grid;
-  grid-template-columns: 1fr 1fr;  
+  grid-template-columns: 1fr 1fr;
+}
+
+.paragrafo-ativo {
+  padding: 5px;
+  background-color: aquamarine;
+  border-radius: 5px;
+}
+
+.paragrafo-invalid {
+  padding: 5px;
+  background-color: red;
+  border-radius: 5px;
 }
