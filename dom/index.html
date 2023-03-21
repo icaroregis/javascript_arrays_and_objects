@@ -1,0 +1,25 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="titulo" class="title-h1">Olá teste.</h1>
+
+    <script type="application/javascript">
+      const h1 = document.getElementById('titulo');
+      const text = h1.innerHTML;
+
+      const h1Class = document.getElementsByClassName('title-h1');
+      const textClass = h1Class[0].innerHTML;
+
+      console.log(text);
+      console.log(textClass);
+    </script>
+  </body>
+</html>

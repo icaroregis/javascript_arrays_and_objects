@@ -1,0 +1,80 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+  </head>
+  <body>
+    <h1>Lista de convidados</h1>
+
+    <ul id="list"></ul>
+
+    <input id="input" type="text" placeholder="Digite o nome do convidado:" />
+    <button id="button">Cadastrar</button>
+
+    <script type="text/javascript">
+      // tres formas de capturar elementos:
+      // 1. document.querySelector()
+      // 2. document.getElementById()
+      // 3. document.getElementsByClassName()
+      let convidados = JSON.parse(localStorage.getItem('convidados')) || [];
+
+      const elLista = document.getElementById('list');
+      const elCampo = document.getElementById('input');
+      const elBotao = document.getElementById('button');
+
+      //limpar formumário
+      function cleanList() {
+        elLista.innerHTML = '';
+        elCampo.value = '';
+      }
+
+      function saveLocalHistory() {
+        localStorage.setItem('convidados', JSON.stringify(convidados));
+      }
+
+      //listando usuários
+      function list() {
+        cleanList();
+
+        convidados.map((convidado) => {
+          const elConvidado = document.createElement('li');
+          const elNome = document.createTextNode(convidado.nome);
+
+          //excluir usuário
+          const elDelete = document.createElement('a');
+          const elDeleteText = document.createTextNode('excluir');
+          elDelete.setAttribute('href', '#');
+          elDelete.addEventListener('click', () => {
+            convidados = convidados.filter((pessoa) => {
+              return convidado.nome !== pessoa.nome;
+            });
+
+            saveLocalHistory();
+            list();
+          });
+
+          elDelete.appendChild(elDeleteText);
+          elConvidado.appendChild(elNome);
+          elConvidado.appendChild(elDelete);
+          elLista.appendChild(elConvidado);
+        });
+      }
+      list();
+
+      //Adicionando usuários
+      elBotao.addEventListener('click', () => {
+        const nome = elCampo.value;
+        convidados.push({ nome: nome });
+
+        saveLocalHistory();
+        cleanList();
+        list();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Github</h1>
+
+      <button onclick="recoverData()">Recuperar Dados do Github</button>
+    </div>
+
+    <script type="text/javascript">
+      function recoverData() {
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'https://api.github.com/users/icaroregis');
+        xhr.send(null);
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              console.log(JSON.parse(xhr.responseText));
+            } else {
+              console.warn('Erro no servidor!!');
+            }
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
